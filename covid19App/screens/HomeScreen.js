@@ -7,6 +7,8 @@ import {Ionicons} from "@expo/vector-icons";
 import {RFValue} from "react-native-responsive-fontsize";
 
 export default function HomeScreen() {
+    const image = require('../assets/images/cv.jpeg');
+
   return (
       <React.Fragment>
         <SafeAreaView>
@@ -20,15 +22,61 @@ export default function HomeScreen() {
             </View>
           </View>
 
-          <ScrollView style={{padding:15}}>
-           <ImageBackground
-               source={{uri: '../assets/images/cv.jpeg'}} style={{
-             flex: 1,
-             resizeMode: "cover",
-             justifyContent: "flex-end"}}>
-             <Text>641</Text>
-             <Text>confirmed cases</Text>
-           </ImageBackground>
+          <ScrollView style={{padding:15,height:'40%',flexDirection:'row'}} horizontal={true} showsVerticalScrollIndicator={false}>
+                   <ImageBackground
+                       source={image}
+                       style={{
+                     resizeMode: "cover",
+                           height:RFValue(210),
+                           width:RFValue(300),
+                     alignItems: "flex-end",
+                           padding:15,
+                           borderRadius:10,
+                           zIndex:2,
+                           // margin:10
+                       }}
+                       imageStyle={{borderRadius:10}}
+                   >
+                     <Text style={{color:'#fff'}}>641</Text>
+                     <Text style={{color:'#fff'}}>confirmed cases</Text>
+                   </ImageBackground>
+
+              <ImageBackground
+                  source={image}
+                  style={{
+                      resizeMode: "cover",
+                      height:RFValue(210),
+                      width:RFValue(300),
+                      alignItems: "flex-end",
+                      padding:15,
+                      borderRadius:10,
+                      zIndex:2,
+                      marginLeft:10
+                  }}
+                  imageStyle={{borderRadius:10}}
+              >
+                  <Text style={{color:'#fff'}}>641</Text>
+                  <Text style={{color:'#fff'}}>confirmed cases</Text>
+              </ImageBackground>
+              <ImageBackground
+                  source={image}
+                  style={{
+                      resizeMode: "cover",
+                      height:RFValue(210),
+                      width:RFValue(300),
+                      alignItems: "flex-end",
+                      padding:15,
+                      borderRadius:10,
+                      zIndex:2,
+                      marginLeft:10
+                  }}
+                  imageStyle={{borderRadius:10}}
+              >
+                  <Text style={{color:'#fff'}}>641</Text>
+                  <Text style={{color:'#fff'}}>confirmed cases</Text>
+              </ImageBackground>
+
+
 
           </ScrollView>
         </SafeAreaView>

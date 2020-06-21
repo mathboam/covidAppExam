@@ -6,8 +6,10 @@ export default {
     Root: {
       path: 'root',
       screens: {
-        Home: 'home',
+        Home: 'Landing',
         Links: 'links',
+        Landing:'land'
+
       },
     },
   },
