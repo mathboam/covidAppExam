@@ -39,7 +39,7 @@ export default function Landing(props) {
     <React.Fragment>
       <StatusBar barStyle={'light-content'} />
       <ImageBackground
-        source={require('../../assets/images/COVID-19.jpg')}
+        source={require('../../assets/images/cv.jpeg')}
         style={{
           flex: 1,
           resizeMode: 'cover',
