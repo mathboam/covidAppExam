@@ -14,17 +14,25 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { MonoText } from '../components/StyledText';
+import NotificationModal from '../components/modals/NotificationModal';
+import UserModal from '../components/modals/UserModal';
 
 export default function HomeScreen() {
   const image = require('../assets/images/cv.jpeg');
+  const [show, setShow] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
 
   return (
     <React.Fragment>
       <SafeAreaView>
         <View style={{ padding: 15, borderBottomColor: '#dcdcdc', borderBottomWidth: RFValue(1) }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <Ionicons name={'ios-contact'} size={RFValue(40)} />
-            <Ionicons name={'ios-notifications-outline'} size={RFValue(40)} />
+            <TouchableOpacity onPress={() => setVisible(true)}>
+              <Ionicons name={'ios-contact'} size={RFValue(40)} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setShow(true)}>
+              <Ionicons name={'ios-notifications-outline'} size={RFValue(40)} />
+            </TouchableOpacity>
           </View>
           <View style={{ marginTop: 5 }}>
             <Text style={{ fontSize: RFValue(25), fontWeight: 'bold' }}>Home</Text>
@@ -35,7 +43,7 @@ export default function HomeScreen() {
           <ScrollView
             style={{ height: '45%', flexDirection: 'row' }}
             horizontal={true}
-            showsHorizontalscrollIndicator={false}>
+            showsHorizontalScrollIndicator={false}>
             <ImageBackground
               source={image}
               style={{
@@ -260,6 +268,8 @@ export default function HomeScreen() {
             </View>
           </View>
         </ScrollView>
+        <NotificationModal show={show} close={setShow} />
+        <UserModal show={visible} close={setVisible} />
       </SafeAreaView>
     </React.Fragment>
   );

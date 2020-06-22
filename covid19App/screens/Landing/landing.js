@@ -6,14 +6,14 @@ import {
   ImageBackground,
   StatusBar,
   StyleSheet,
-    KeyboardAvoidingView
+  KeyboardAvoidingView,
 } from 'react-native';
 import MyTextInput from '../../components/textInput';
 import MyButton from '../../components/button';
-import {version} from '../../package.json';
+import { version } from '../../package.json';
 
 export default function Landing(props) {
-  let {bigText, smallText} = styles;
+  let { bigText, smallText } = styles;
   let [pass, setpass] = React.useState(false);
   let [ide, setide] = React.useState(false);
   const [number, setnumber] = React.useState('');
@@ -46,46 +46,52 @@ export default function Landing(props) {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-      <KeyboardAvoidingView behavior={"padding"}>
-        <SafeAreaView style={{justifyContent: 'center', alignItems: 'center'}}>
-          <View>
-            <Text style={bigText}>COVERS</Text>
-          </View>
-          <View style={{width: '80%'}}>
-            <Text style={smallText}>
-              (COVID 19 EMERGENCY RESPONSE SOLUTION)
-            </Text>
-            <Text style={{...smallText, fontWeight: '300', fontSize: 10}}>
-              Join the effort by well-meaning Africans using technology to slow
-              down and eventually halt the spread of COVID-19
-            </Text>
-
+        <KeyboardAvoidingView behavior={'padding'}>
+          <SafeAreaView style={{ justifyContent: 'center', alignItems: 'center' }}>
             <View>
-              <MyTextInput
-                placeholder={'Phone Number'}
-                type={'number-pad'}
-                max={10}
-                appearance={'dark'}
-                onChangeText={(number) => setandcheck(number)}
-                defaultValue={number}
+              <Text style={bigText}>COVERS</Text>
+            </View>
+            <View style={{ width: '80%' }}>
+              <Text style={smallText}>(COVID 19 EMERGENCY RESPONSE SOLUTION)</Text>
+              <Text style={{ ...smallText, fontWeight: '300', fontSize: 10 }}>
+                Join the effort by well-meaning Africans using technology to slow down and
+                eventually halt the spread of COVID-19
+              </Text>
+
+              <View>
+                <MyTextInput
+                  placeholder={'Phone Number'}
+                  type={'number-pad'}
+                  max={10}
+                  style={{
+                    height: 40,
+                    backgroundColor: '#ffffff',
+                    textAlign: 'right',
+                    padding: 10,
+                    zIndex: 2,
+                    marginTop: 40,
+                  }}
+                  appearance={'dark'}
+                  onChangeText={(number) => setandcheck(number)}
+                  defaultValue={number}
+                />
+              </View>
+              <MyButton
+                style={{
+                  backgroundColor: pass ? '#00b200' : '#b3b3b3',
+                  height: 45,
+                  zIndex: 2,
+                  marginTop: 10,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                text={ide ? error : 'Get Started'}
+                onPress={checkforerrors}
               />
             </View>
-            <MyButton
-              style={{
-                backgroundColor: pass ? '#00b200' : '#b3b3b3',
-                height: 45,
-                zIndex: 2,
-                marginTop: 10,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-              text={ide ? error : 'Get Started'}
-              onPress={checkforerrors}
-            />
-          </View>
-          <Text style={{color: '#ffffff', marginTop: 10}}>Beta {version}</Text>
-        </SafeAreaView>
-            </KeyboardAvoidingView>
+            <Text style={{ color: '#ffffff', marginTop: 10 }}>Beta {version}</Text>
+          </SafeAreaView>
+        </KeyboardAvoidingView>
       </ImageBackground>
     </React.Fragment>
   );

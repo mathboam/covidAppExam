@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput} from 'react-native';
+import { TextInput } from 'react-native';
 
 export default function MyTextInput(props) {
   return (
@@ -7,14 +7,7 @@ export default function MyTextInput(props) {
       placeholder={props.placeholder}
       keyboardAppearance={'light'}
       keyboardType={props.type}
-      style={{
-        height: 40,
-        backgroundColor: '#ffffff',
-        textAlign: 'right',
-        padding: 10,
-        zIndex: 2,
-        marginTop: 40,
-      }}
+      style={props.style}
       value={props.value}
       maxLength={props.max}
       onChangeText={props.onChangeText}
