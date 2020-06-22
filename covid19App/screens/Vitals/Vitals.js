@@ -11,9 +11,20 @@ export default function Vitals(props) {
   const [visible, setVisible] = React.useState(false);
   const [toggleVitals, setToggleVitals] = React.useState(false);
   return (
-    <SafeAreaView>
-      <View style={{ padding: 15, borderBottomColor: '#dcdcdc', borderBottomWidth: RFValue(1) }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+    <SafeAreaView style={{ flex: 1, justifyContent: 'space-between' }}>
+      <View
+        style={{
+          backgroundColor: '#ffffff',
+          padding: 15,
+          borderBottomColor: '#dcdcdc',
+          borderBottomWidth: RFValue(1),
+        }}>
+        <View
+          style={{
+            backgroundColor: '#ffffff',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
           <TouchableOpacity onPress={() => setVisible(true)}>
             <Ionicons name={'ios-contact'} size={RFValue(40)} />
           </TouchableOpacity>
@@ -25,11 +36,20 @@ export default function Vitals(props) {
           <Text style={{ fontSize: RFValue(25), fontWeight: 'bold' }}>Vitals</Text>
         </View>
       </View>
-      <View style={{ marginTop: RFValue(70), justifyContent: 'center', alignItems: 'center' }}>
-        <View>
-          <Image source={require('../../assets/images/lifeline.gif')} />
+      <View
+        style={{
+          justifyContent: 'space-between',
+          flex: 1,
+          backgroundColor: '#ffffff',
+          alignItems: 'center',
+        }}>
+        <View style={{ flex: 2 }}>
+          <Image
+            source={require('../../assets/images/24426-trusted-health-ekg.gif')}
+            style={{ width: RFValue(170), height: RFValue(170) }}
+          />
         </View>
-        <View style={{ marginTop: 40 }}>
+        <View style={{ flex: 4 }}>
           <Text>You have not logged your vitals yet</Text>
           <TouchableOpacity
             onPress={() => setToggleVitals(true)}

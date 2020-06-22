@@ -12,7 +12,18 @@ export default function ReportModal(props) {
   const [soreThroat, setSoreThroat] = React.useState(0);
   const [fever, setFever] = React.useState(0);
   return (
-    <Modal animationType="slide" transparent={true} visible={props.show}>
+    <Modal
+      onDismiss={() => {
+        Alert.alert(
+          'Success',
+          'Your vitals have been logged successfully',
+          [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+          { cancelable: false }
+        );
+      }}
+      animationType="slide"
+      transparent={true}
+      visible={props.show}>
       <View
         style={{
           padding: RFValue(25),
@@ -633,6 +644,21 @@ export default function ReportModal(props) {
               </TouchableOpacity>
             </View>
           </View>
+
+          <MyButton
+            onPress={() => props.close(!props.show)}
+            style={{
+              backgroundColor: '#899a9a',
+              height: RFValue(50),
+              zIndex: 10,
+              width: '100%',
+              justifyContent: 'center',
+              marginTop: RFValue(10),
+              alignItems: 'center',
+              borderRadius: 5,
+            }}
+            text={'Log Vitals'}
+          />
         </ScrollView>
       </View>
       <View style={{ height: RFValue(60) }}></View>

@@ -28,7 +28,7 @@ export default function ReportModal(props) {
       visible={props.show}
       onDismiss={() => {
         Alert.alert(
-          '',
+          'Success',
           'You updated your profile successfully',
           [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
           { cancelable: false }

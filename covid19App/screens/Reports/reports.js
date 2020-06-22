@@ -12,7 +12,7 @@ export default function Reports(props) {
   const [visible, setVisible] = React.useState(false);
   const [toggleReport, setToggleReport] = React.useState(false);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, justifyContent: 'space-between' }}>
       <View style={{ padding: 15, borderBottomColor: '#dcdcdc', borderBottomWidth: RFValue(1) }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <TouchableOpacity onPress={() => setVisible(true)}>
@@ -26,25 +26,20 @@ export default function Reports(props) {
           <Text style={{ fontSize: RFValue(25), fontWeight: 'bold' }}>Case Reports</Text>
         </View>
       </View>
-      <View style={{ marginTop: RFValue(70), justifyContent: 'center', alignItems: 'center' }}>
-        <View>
-          <Ionicons name={'ios-document'} color={'#dbdbdb'} size={RFValue(120)} />
-          <View
-            style={{
-              backgroundColor: '#bdbdbd',
-              width: 50,
-              height: 50,
-              borderRadius: 50,
-              position: 'absolute',
-              right: 30,
-              top: -10,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Text style={{ fontSize: RFValue(50), fontWeight: '500' }}>?</Text>
-          </View>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#ffffff',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
+          <Image
+            source={require('../../assets/images/20305-document-open.gif')}
+            style={{ width: RFValue(150), height: RFValue(150) }}
+          />
         </View>
-        <View style={{ marginTop: 40 }}>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
           <Text>You have not made any case reports</Text>
           <TouchableOpacity
             onPress={() => setToggleReport(true)}
@@ -52,8 +47,8 @@ export default function Reports(props) {
               height: 60,
               borderWidth: 1,
               borderColor: 'black',
-              marginTop: 15,
               borderRadius: 5,
+              marginTop: RFValue(20),
               borderStyle: 'dashed',
               justifyContent: 'center',
               alignItems: 'center',
