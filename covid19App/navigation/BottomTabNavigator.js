@@ -5,6 +5,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import Reports from '../screens/Reports/reports';
+import Vitals from '../screens/Vitals';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -35,7 +36,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="vitals"
-        component={LinksScreen}
+        component={Vitals}
         options={{
           title: 'Vitals',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="ios-heart" />,
