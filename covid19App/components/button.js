@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Text} from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 
 export default function MyButton(props) {
   return (
@@ -8,7 +8,7 @@ export default function MyButton(props) {
       style={{
         ...props.style,
       }}>
-      <Text style={{color: '#ffffff'}}>{props.text}</Text>
+      <Text style={{ color: '#ffffff', fontWeight: 'bold' }}>{props.text}</Text>
     </TouchableOpacity>
   );
 }

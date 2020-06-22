@@ -11,6 +11,7 @@ export default function MyTextInput(props) {
       value={props.value}
       maxLength={props.max}
       onChangeText={props.onChangeText}
+      placeholderTextColor={props.placeColor}
     />
   );
 }

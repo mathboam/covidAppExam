@@ -39,7 +39,7 @@ export default function ReportModal(props) {
           style={{
             justifyContent: 'center',
           }}>
-          <Text style={{ fontWeight: 'bold', fontSize: RFValue(35) }}>Profile</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: RFValue(35) }}>Make Report</Text>
           <TouchableOpacity
             style={{ position: 'absolute', right: 0 }}
             onPress={() => props.close(!props.show)}>
@@ -47,131 +47,118 @@ export default function ReportModal(props) {
           </TouchableOpacity>
         </View>
         <View style={{ marginTop: RFValue(25) }}>
-          <Text style={{ fontWeight: 'bold', fontSize: RFValue(20) }}>Personal Details</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: RFValue(17) }}>Who are you reporting?</Text>
         </View>
+        <View style={{ marginTop: RFValue(10), flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity
+            onPress={() => setMale(false)}
+            style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Ionicons
+              name={male ? 'ios-checkmark-circle-outline' : 'ios-checkmark-circle'}
+              size={RFValue(30)}
+            />
+            <Text style={{ marginLeft: RFValue(8) }}>Self</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setMale(true)}
+            style={{ marginLeft: RFValue(15), flexDirection: 'row', alignItems: 'center' }}>
+            <Ionicons
+              name={male ? 'ios-checkmark-circle' : 'ios-checkmark-circle-outline'}
+              size={RFValue(30)}
+            />
+            <Text style={{ marginLeft: RFValue(8) }}>Other Individual</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={{ marginTop: RFValue(15) }}>
-          <Text style={{ fontWeight: '400', fontSize: RFValue(16) }}>Enter Age</Text>
-          <MyTextInput
-            style={{
-              height: RFValue(50),
-              textAlign: 'left',
-              borderWidth: 1,
-              borderColor: '#c9c9c9',
-              padding: 10,
-              zIndex: 2,
-              marginTop: RFValue(10),
-            }}
-            placeholder={'31'}
-          />
           <View>
-            <View style={{ marginTop: RFValue(10), flexDirection: 'row', alignItems: 'center' }}>
-              <TouchableOpacity
-                onPress={() => setMale(false)}
-                style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Ionicons
-                  name={male ? 'ios-checkmark-circle-outline' : 'ios-checkmark-circle'}
-                  size={RFValue(30)}
-                />
-                <Text style={{ marginLeft: RFValue(8) }}>Female</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => setMale(true)}
-                style={{ marginLeft: RFValue(15), flexDirection: 'row', alignItems: 'center' }}>
-                <Ionicons
-                  name={male ? 'ios-checkmark-circle' : 'ios-checkmark-circle-outline'}
-                  size={RFValue(30)}
-                />
-                <Text style={{ marginLeft: RFValue(8) }}>Male</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View style={{ marginTop: RFValue(20) }}>
-            <Text style={{ fontWeight: 'bold', fontSize: RFValue(17) }}>Travel History</Text>
-            <Text style={{ fontWeight: '300', fontSize: RFValue(12) }}>
-              Select the last two countries you visited(if Applicable)
+            <Text style={{ fontWeight: 'bold', fontSize: RFValue(17) }}>
+              Location or Digital Address
             </Text>
-            <View
+            <MyTextInput
               style={{
-                marginTop: RFValue(20),
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}>
-              <TouchableOpacity
-                style={{
-                  borderWidth: 1,
-                  borderColor: '#000',
-                  height: RFValue(110),
-                  width: '45%',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 5,
-                }}>
-                <CountryPicker
-                  {...{
-                    countryCode,
-                    withFlag,
-                  }}
-                  visible={visible}
-                />
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  borderWidth: 1,
-                  borderColor: '#000',
-                  height: RFValue(110),
-                  width: '45%',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 5,
-                }}>
-                <CountryPicker
-                  {...{
-                    countryCode,
-                    withFlag,
-                  }}
-                  visible={visible}
-                />
-              </TouchableOpacity>
-            </View>
-            <View style={{ marginTop: RFValue(20) }}>
-              <Text style={{ fontWeight: 'bold', fontSize: RFValue(17) }}>
-                Medical Professional Information
-              </Text>
-              <Text style={{ fontWeight: '300', fontSize: RFValue(12) }}>
-                Applicable if you are a health worker
-              </Text>
-
-              <Text style={{ marginTop: RFValue(10), fontWeight: '400', fontSize: RFValue(16) }}>
-                Health License Number
-              </Text>
+                height: RFValue(50),
+                textAlign: 'left',
+                borderWidth: 1,
+                borderColor: '#c1c1c1',
+                padding: 10,
+                zIndex: 2,
+                marginTop: RFValue(10),
+              }}
+              placeholder={'eg: GA-492-74'}
+              placeColor={'#dcdcdc'}
+            />
+          </View>
+          <View
+            style={{
+              marginTop: RFValue(20),
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            <View>
+              <Text style={{ fontWeight: 'bold', fontSize: RFValue(17) }}>Nearest Landmark</Text>
               <MyTextInput
                 style={{
                   height: RFValue(50),
                   textAlign: 'left',
                   borderWidth: 1,
-                  borderColor: '#c9c9c9',
+                  borderColor: '#c1c1c1',
                   padding: 10,
                   zIndex: 2,
                   marginTop: RFValue(10),
                 }}
+                placeholder={'eg: Goil Fuel Station'}
+                placeColor={'#dcdcdc'}
               />
-              <MyButton
+            </View>
+
+            <View>
+              <Text style={{ fontWeight: 'bold', fontSize: RFValue(17) }}>Alternate Contact</Text>
+              <MyTextInput
                 style={{
-                  backgroundColor: '#000',
                   height: RFValue(50),
+                  textAlign: 'left',
+                  borderWidth: 1,
+                  borderColor: '#c1c1c1',
+                  padding: 10,
                   zIndex: 2,
-                  width: '100%',
-                  justifyContent: 'center',
                   marginTop: RFValue(10),
-                  alignItems: 'center',
                 }}
-                text={'Update Profile'}
+                placeholder={'Contact Number'}
+                placeColor={'#dcdcdc'}
               />
             </View>
           </View>
+          <View style={{ marginTop: RFValue(20) }}>
+            <Text style={{ fontWeight: 'bold', fontSize: RFValue(17) }}>Description</Text>
+            <MyTextInput
+              style={{
+                height: RFValue(100),
+                textAlign: 'left',
+                borderWidth: 1,
+                borderColor: '#c9c9c9',
+                zIndex: 2,
+                marginTop: RFValue(10),
+              }}
+              placeholder={'Type Something'}
+              placeColor={'#dcdcdc'}
+            />
+          </View>
         </View>
+        <MyButton
+          style={{
+            backgroundColor: '#000',
+            height: RFValue(50),
+            zIndex: 10,
+            width: '100%',
+            justifyContent: 'center',
+            marginTop: RFValue(10),
+            alignItems: 'center',
+          }}
+          text={'Report Case'}
+        />
       </View>
+      <View style={{ height: RFValue(60) }}></View>
     </Modal>
   );
 }

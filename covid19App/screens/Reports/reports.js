@@ -3,10 +3,14 @@ import React from 'react';
 import { SafeAreaView, View, Text, TouchableOpacity, Image } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Ionicons } from '@expo/vector-icons';
+import NotificationModal from '../../components/modals/NotificationModal';
+import UserModal from '../../components/modals/UserModal';
+import ReportModal from '../../components/modals/ReportModal';
 
 export default function Reports(props) {
   const [show, setShow] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
+  const [toggleReport, setToggleReport] = React.useState(false);
   return (
     <SafeAreaView>
       <View style={{ padding: 15, borderBottomColor: '#dcdcdc', borderBottomWidth: RFValue(1) }}>
@@ -43,6 +47,7 @@ export default function Reports(props) {
         <View style={{ marginTop: 40 }}>
           <Text>You have not made any case reports</Text>
           <TouchableOpacity
+            onPress={() => setToggleReport(true)}
             style={{
               height: 60,
               borderWidth: 1,
@@ -56,6 +61,9 @@ export default function Reports(props) {
             <Text>Make Case Report</Text>
           </TouchableOpacity>
         </View>
+        <NotificationModal show={show} close={setShow} />
+        <UserModal show={visible} close={setVisible} />
+        <ReportModal show={toggleReport} close={setToggleReport} />
       </View>
     </SafeAreaView>
   );
